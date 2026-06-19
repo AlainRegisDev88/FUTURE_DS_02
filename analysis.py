@@ -8,7 +8,7 @@ df = unclean_df.dropna().drop_duplicates()
 
 
 #UTILS
-# df.to_excel('./excel.xlsx')
+df.to_excel('./excel.xlsx')
 df['has_churned'] =  df['Churn'] == 'Yes'
 
 
