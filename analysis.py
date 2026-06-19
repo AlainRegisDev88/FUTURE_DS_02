@@ -75,6 +75,15 @@ print(contract_type.head(5))
 churn_rates_by_contract_type = ((df.groupby('Contract')['has_churned'].mean()) * 100).round(2)
 print(churn_rates_by_contract_type)
 
+# churn by tenure
+churn_by_tenure = ((df.groupby('tenure')['has_churned'].mean()) * 100).round(2).sort_values(ascending=False)
+
+churn_by_tenure = df.groupby('tenure').agg(
+    tenure_duration=('tenure', 'first'),
+    churn_rate=('has_churned', lambda x: (x.mean()*100).round(2))
+).sort_values(by='churn_rate', ascending=False)
+#clearly shows that ages with high tenure period rarely churn
+
 
 
 
