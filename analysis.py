@@ -6,22 +6,35 @@ unclean_df = pd.read_csv('./data/WA_Fn-UseC_-Telco-Customer-Churn.csv')
 df = unclean_df.dropna().drop_duplicates()
 
 
-df.to_excel('./excel.xlsx')
+# df.to_excel('./excel.xlsx')
 
 print(df.head(10))
 
 
+# totals data
 total_customers = df['customerID'].count()
 churn_true = (df['Churn'] == 'Yes').sum()
-print(total_customers)
-print(churn_true)
 
 # Partners
-
 partners = df[df['Partner'] == 'Yes']
+
+# dependents
 dependents = df[df['Dependents'] == 'Yes']
+
+# senior_citizens
 senior_citizens = df[df['SeniorCitizen'] == '1']
 
+# Organise by contrac type
+contract_type = df.groupby('Contract')[['Churn']].count()
+
+
+# organise by tenure
+tenure  =df.groupby('tenure')[['tenure', 'Churn']]
+
+# organize by phone service availability
+phone_service = df.groupby('PhoneService')[['PhoneService', 'Churn']]
+
+print("===", contract_type.head(10), "===")
 
 print(partners.head())
 print(df.info())
