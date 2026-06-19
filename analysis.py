@@ -6,7 +6,11 @@ unclean_df = pd.read_csv('./data/WA_Fn-UseC_-Telco-Customer-Churn.csv')
 df = unclean_df.dropna().drop_duplicates()
 
 
+
+#UTILS
 # df.to_excel('./excel.xlsx')
+df['has_churned'] =  df['Churn'] == 'Yes'
+
 
 print(df.head(10))
 
@@ -25,7 +29,8 @@ non_dependents = df[df['Dependents'] == 'No']
 
 
 # senior_citizens
-senior_citizens = df[df['SeniorCitizen'] == '1']
+senior_citizens = df[df['SeniorCitizen'] == 1]
+non_senior_citizens = df[df['SeniorCitizen'] == 0]
 
 # Organise by contract type
 contract_type = df.groupby('Contract')[['Churn']].count()
@@ -40,20 +45,35 @@ phone_service = df.groupby('PhoneService')[['PhoneService', 'Churn']]
 #CHURN RATES
 
 total_churn_rate = round((( churn_true / total_customers) * 100), 2)
-
+print(f"{"="*10}CHURN RATES{"="*10}")
 # by partners
 churn_rate_partners = round((((partners['Churn'] == 'Yes').mean()) * 100), 2)
-print(churn_rate_partners)
+print("Partners: ", churn_rate_partners)
 # by non_partners
 churn_rate_non_partners = round((((non_partners['Churn'] == 'Yes').mean()) * 100), 2)
-print(churn_rate_non_partners)
+print("Non Partners:", churn_rate_non_partners)
 
-# by dependants
-
+# by dependents
 churn_rate_dependents = round((((dependents['Churn'] == 'Yes').mean()) * 100), 2)
-print(churn_rate_dependents)
+print("Dependents: ", churn_rate_dependents)
+#by non-dependent people
 churn_rate_non_dependents = round((((non_dependents['Churn'] == 'Yes').mean()) * 100), 2)
-print(churn_rate_non_dependents)
+print("Non-dependents: ", churn_rate_non_dependents)
+
+# by senior citizens
+churn_rate_senior_citizens = round((((senior_citizens['Churn'] == 'Yes').mean()) * 100), 2)
+print("Seniors: ",churn_rate_senior_citizens)
+# by younger people
+churn_rate_non_senior_citizens = round((((non_senior_citizens['Churn'] == 'Yes').mean()) * 100), 2)
+print("Young: ",churn_rate_non_senior_citizens)
+
+# contract type
+print(contract_type.head(5))
+
+# churn_rates_by_contract_type = look in the tab and continue 
+
+
+
 
 
 # RETENTION RATES
