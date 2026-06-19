@@ -17,7 +17,7 @@ churn_true = (df['Churn'] == 'Yes').sum()
 
 # Partners
 partners = df[df['Partner'] == 'Yes']
-not_partners = df[df['Partner'] == 'No']
+non_partners = df[df['Partner'] == 'No']
 
 # dependents
 dependents = df[df['Dependents'] == 'Yes']
@@ -45,10 +45,15 @@ total_churn_rate = round((( churn_true / total_customers) * 100), 2)
 churn_rate_partners = round((((partners['Churn'] == 'Yes').mean()) * 100), 2)
 print(churn_rate_partners)
 # by non_partners
-churn_rate_non_partners = round((((not_partners['Churn'] == 'Yes').mean()) * 100), 2)
+churn_rate_non_partners = round((((non_partners['Churn'] == 'Yes').mean()) * 100), 2)
 print(churn_rate_non_partners)
 
+# by dependants
 
+churn_rate_dependents = round((((dependents['Churn'] == 'Yes').mean()) * 100), 2)
+print(churn_rate_dependents)
+churn_rate_non_dependents = round((((non_dependents['Churn'] == 'Yes').mean()) * 100), 2)
+print(churn_rate_non_dependents)
 
 
 # RETENTION RATES
