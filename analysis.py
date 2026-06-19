@@ -17,14 +17,17 @@ churn_true = (df['Churn'] == 'Yes').sum()
 
 # Partners
 partners = df[df['Partner'] == 'Yes']
+not_partners = df[df['Partner'] == 'No']
 
 # dependents
 dependents = df[df['Dependents'] == 'Yes']
+non_dependents = df[df['Dependents'] == 'No']
+
 
 # senior_citizens
 senior_citizens = df[df['SeniorCitizen'] == '1']
 
-# Organise by contrac type
+# Organise by contract type
 contract_type = df.groupby('Contract')[['Churn']].count()
 
 
@@ -34,19 +37,22 @@ tenure  =df.groupby('tenure')[['tenure', 'Churn']]
 # organize by phone service availability
 phone_service = df.groupby('PhoneService')[['PhoneService', 'Churn']]
 
-print("===", contract_type.head(10), "===")
+#CHURN RATES
 
-print(partners.head())
-print(df.info())
+total_churn_rate = round((( churn_true / total_customers) * 100), 2)
 
-churn_rate = round((( churn_true / total_customers) * 100), 2)
-print(churn_rate)
-
-retention_rate = 100 - churn_rate
-
-churn_by_partnership = df.groupby('Partner')[['Partner','Churn']]
-print(churn_by_partnership.head(5))
+# by partners
+churn_rate_partners = round((((partners['Churn'] == 'Yes').mean()) * 100), 2)
+print(churn_rate_partners)
+# by non_partners
+churn_rate_non_partners = round((((not_partners['Churn'] == 'Yes').mean()) * 100), 2)
+print(churn_rate_non_partners)
 
 
+
+
+# RETENTION RATES
+
+total_retention_rate = 100 - total_churn_rate
 
 
