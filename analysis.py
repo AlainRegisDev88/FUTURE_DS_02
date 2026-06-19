@@ -8,8 +8,9 @@ df = unclean_df.dropna().drop_duplicates()
 
 
 #UTILS
-df.to_excel('./excel.xlsx')
 df['has_churned'] =  df['Churn'] == 'Yes'
+# df.to_excel('./excel.xlsx')
+
 
 
 print(df.head(10))
@@ -70,7 +71,10 @@ print("Young: ",churn_rate_non_senior_citizens)
 # contract type
 print(contract_type.head(5))
 
-# churn_rates_by_contract_type = look in the tab and continue 
+# churn rates by contract
+churn_rates_by_contract_type = ((df.groupby('Contract')['has_churned'].mean()) * 100).round(2)
+print(churn_rates_by_contract_type)
+
 
 
 
