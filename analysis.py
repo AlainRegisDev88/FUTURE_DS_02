@@ -1,5 +1,6 @@
 import pandas as pd
 import openpyxl
+import matplotlib.pyplot as plt
 
 unclean_df = pd.read_csv('./data/WA_Fn-UseC_-Telco-Customer-Churn.csv')
 
@@ -13,7 +14,6 @@ df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
 df['MonthlyCharges'] = pd.to_numeric(df['MonthlyCharges'], errors='coerce')
 df['tenure_months'] = (df['TotalCharges']) // (df['MonthlyCharges'])
 # df.to_excel('./excel.xlsx')
-
 
 
 print(df.head(10))
