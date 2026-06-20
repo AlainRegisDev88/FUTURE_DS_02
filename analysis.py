@@ -9,6 +9,9 @@ df = unclean_df.dropna().drop_duplicates()
 
 #UTILS
 df['has_churned'] =  df['Churn'] == 'Yes'
+df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
+df['MonthlyCharges'] = pd.to_numeric(df['MonthlyCharges'], errors='coerce')
+
 # df.to_excel('./excel.xlsx')
 
 
