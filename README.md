@@ -11,7 +11,7 @@ A comprehensive analysis of Telco customer churn patterns using Python, Pandas, 
 | Metric | Value |
 |--------|-------|
 | **Total Customers** | 7,043 |
-| **Churned Customers** | ~1,869 |
+| **Churned Customers** | 1,869 |
 | **Overall Churn Rate** | ~26.5% |
 | **Retention Rate** | ~73.5% |
 | **Highest Risk Segment** | Fiber Optic + Month-to-Month (0-3 months tenure) |
