@@ -247,11 +247,11 @@ jupyter notebook
 
 ## Key Findings Summary
 
-✅ **Tenure is destiny** — First 3 months determine 80% of churn risk  
-✅ **Fiber = Premium + Fragile** — High cost + short contracts = high churn  
-✅ **Seniors need help** — 41% churn due to lack of tech support  
-✅ **Contracts matter** — Month-to-month = 14x churn vs. 2-year  
-✅ **Quick wins available** — Tech support, onboarding, contract incentives are all implementable now
+- **Tenure is destiny** — First 3 months determine 80% of churn risk  
+- **Fiber = Premium + Fragile** — High cost + short contracts = high churn  
+- **Seniors need help** — 41% churn due to lack of tech support  
+- **Contracts matter** — Month-to-month = 14x churn vs. 2-year  
+- **Quick wins available** — Tech support, onboarding, contract incentives are all implementable now
 
 ---
 
@@ -263,13 +263,3 @@ Future Interns Data Science & Analytics Internship
 CIN: FIT/MAY26/DS18653
 
 ---
-
-## Submission Details
-
-- **Deadline:** June 25, 2026
-- **Deliverable:** GitHub repository with full analysis notebook, code, and insights
-- **GitHub Link:** [Your repository URL here]
-
----
-
-*Last Updated: June 2026*
